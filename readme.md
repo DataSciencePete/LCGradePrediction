@@ -4,5 +4,9 @@ This code is for runs analysis of the lending circle dataset available on Kaggle
 ## Requirements
 Python 3.x (anaconda recommended)
 
-##Data
+## Data
 The data and data dictionary used can be downloaded here https://www.kaggle.com/wendykan/lending-club-loan-data
+
+## Useage
+From the termina
+`python Run_LC_Analysis <data file> <data dictionary file>`
