@@ -8,5 +8,5 @@ Python 3.x (anaconda recommended)
 The data and data dictionary used can be downloaded here https://www.kaggle.com/wendykan/lending-club-loan-data
 
 ## Useage
-From the termina
-`python Run_LC_Analysis <data file> <data dictionary file>`
+From the terminal
+`python LC_analysis <data file> <data dictionary file>`
