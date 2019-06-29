@@ -19,7 +19,7 @@ import utils.grid_search as gs
 #---------------------------
 
   
-def run_RF_analysis(X,y):
+def run_RF(X, y):
 
     clf = RandomForestRegressor(n_estimators=50)
    
