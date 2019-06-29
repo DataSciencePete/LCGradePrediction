@@ -4,14 +4,14 @@ import pandas as pd
 import data.data_load as dl
 import viz.data_viz as dv
 import utils.field_lists as fl
-import analysis.linear_models as lm
-import analysis.random_forest as rf
-import analysis.gradient_boosted_regression as gbr
+import models.linear_models as lm
+import models.random_forest as rf
+import models.gradient_boosted_regression as gbr
 
 # Set a threshold for a column's completeness to be useful
 completeness_threshold = 0.7
 
-parser = argparse.ArgumentParser(description='Run lending circle data analysis')
+parser = argparse.ArgumentParser(description='Run lending circle data models')
 parser.add_argument('filepath', type=str)
 parser.add_argument('filepath_dict', type=str)
 
@@ -67,13 +67,13 @@ if __name__ == '__main__':
     # This section runs and tunes random forest models models on the data
     # ---------------------------
 
-    rf.run_RF_analysis(X, y)
+    rf.run_RF(X, y)
 
     # ---------------------------
     # This section runs and tunes gradient boosted regression models
     # ---------------------------
 
-    gbr.run_gbr_analysis(X, y)
+    gbr.run_gbr(X, y)
 
     print('-' * 20)
     print('Charts have been generated in /viz directory for this analysis')
