@@ -9,6 +9,15 @@ Created on Fri Dec  8 17:52:36 2017
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.patches as mpatches
+import os
+
+# Directory for writing plots
+plot_dir = 'plots'
+
+# Create plot dir if it doesn't exist
+plot_path = os.path.join(os.getcwd(),plot_dir)
+if not os.path.exists(plot_path):
+    os.mkdir(plot_path)
 
 #---------------------------
 # This section plots a heatmap of correlation between all credit-related variables
@@ -25,7 +34,7 @@ def gen_credit_corr_heatmap(df):
     sns.heatmap(corr_df,robust=True,\
                 annot=True,cbar=True,square=True,cmap='PuBuGn')
     plt.title('Credit Variables Correlation Heatmap')
-    plt.savefig('viz/credit_heatmap.jpg')
+    plt.savefig('{}/credit_heatmap.png'.format(plot_dir))
     plt.clf()
 
 #---------------------------
@@ -91,7 +100,7 @@ def gen_sub_grade_plots(df):
         for j in range(1):
             ax[i,j].set_xlabel('Loan Subgrade')
             
-    plt.savefig('viz/subgrade plots.jpg')
+    plt.savefig('{}/subgrade plots.png'.format(plot_dir))
     plt.clf()
 
 #---------------------------
@@ -110,22 +119,22 @@ def gen_loan_income_scatter(df):
     plt.xlabel('Loan Amount')
     plt.ylabel('Annual Income')
     plt.title('Loan Amount versus Annual Income and Loan Grade')
-    plt.savefig('viz/loan_income_scatter.jpg')
+    plt.savefig('{}/loan_income_scatter.png'.format(plot_dir))
     plt.clf()
     
 def plot_linear_models(model_set,X,alphas):
     
     linear_model, ridge_models, lasso_models = model_set
     
-    plot_lin_mdl_coefs__(X,alphas,[mdl[2] for mdl in ridge_models],'viz/ridg reg perf.jpg', 
+    plot_lin_mdl_coefs__(X,alphas,[mdl[2] for mdl in ridge_models],'{}/ridg reg perf.png'.format(plot_dir), 
                        'Regularisation vs Coefficient Values, Ridge Regression')
-    plot_lin_mdl_coefs__(X,alphas,[mdl[2] for mdl in lasso_models],'viz/las reg perf.jpg',
+    plot_lin_mdl_coefs__(X,alphas,[mdl[2] for mdl in lasso_models],'{}/las reg perf.png'.format(plot_dir),
                        'Regularisation vs Coefficient Values, Lasso Regression')
     
     plot_lin_mdl_metric__([mdl[0] for mdl in ridge_models],[mdl[0] for mdl in lasso_models],
-                        'Coefficient of Determination',alphas,'viz/Regularisation r2 performance.jpg')
+                        'Coefficient of Determination',alphas,'{}/Regularisation r2 performance.png'.format(plot_dir))
     plot_lin_mdl_metric__([mdl[1] for mdl in ridge_models],[mdl[1] for mdl in lasso_models],
-                        'Mean Squared Error',alphas,'viz/Regularisation mse performance.jpg')
+                        'Mean Squared Error',alphas,'{}/Regularisation mse performance.png'.format(plot_dir))
 
 #Function to plot coefficients against alpha parameter for lasso and ridge models
 def plot_lin_mdl_coefs__(X,alphas,coeffs,img_name, plot_title):

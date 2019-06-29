@@ -37,7 +37,6 @@ if __name__ == '__main__':
 
     # Do feature engineering
     df = dl.engineer_features(df)
-    # TODO why doesn't this run, to do with last_pymnt_d
 
     # Check dataframe is now complete
     dl.print_completeness_summary(df, 'Dataframe with features and null rows dropped', completeness_threshold,
