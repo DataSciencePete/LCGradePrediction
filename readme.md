@@ -7,6 +7,6 @@ Python 3.x (anaconda recommended)
 ## Data
 The data and data dictionary used can be downloaded here https://www.kaggle.com/wendykan/lending-club-loan-data
 
-## Useage
+## Usage
 From the terminal
 `python LC_analysis <data file> <data dictionary file>`
