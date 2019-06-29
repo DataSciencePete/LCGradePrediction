@@ -13,7 +13,7 @@ import datetime as dt
 def load(filepath):
     #Import the data and enforce data types on mixed columns
     df = pd.read_csv(filepath,dtype={'desc':str,'verification_status_joint':str,'next_pymnt_d':str}, \
-                     encoding='latin-1',low_memory=True)
+                     encoding='latin-1',low_memory=True, skiprows=1)
     return df
 
 def load_dict(filepath):
