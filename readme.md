@@ -1,5 +1,5 @@
 # Predicting Loan Grade of Borrowers
-This code is for analysis of the Lending Circle dataset available on Kaggle. Most analysis of this data considers the probability of default, but this but this analysis looks at the loan grade assigned to each borrower (which ranges from A1 to G5) and the information that affects this.
+This code uses data from the peer to peer lending company Lending Circle (dataset available on Kaggle). Most work considering  this data aims to predict the probability of default, but this work predicts the loan grade assigned to each borrower.
 
 ## Requirements
 Python 3.x (anaconda recommended)
