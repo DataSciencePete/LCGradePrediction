@@ -18,7 +18,7 @@ import utils.grid_search as gs
 # This script  tunes performance of a gradient boosted regression model
 #---------------------------
 
-def run_gbr_analysis(X,y):
+def run_gbr(X, y):
     
     clf = GradientBoostingRegressor(loss='ls',learning_rate=0.1,n_estimators=50,subsample=1.0)
 
